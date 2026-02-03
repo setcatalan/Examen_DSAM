@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Examen_DSAM</string>
+    <string name="totes">Totes</string>
+    <string name="feina">Feina</string>
+    <string name="familia">Família</string>
+    <string name="personal">Personal</string>
+    <string name="home">Home</string>
+    <string name="wifi">Wifi</string>
+    <string name="send">Send</string>
 </resources>
