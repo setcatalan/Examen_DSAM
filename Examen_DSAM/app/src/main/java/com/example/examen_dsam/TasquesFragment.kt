@@ -16,7 +16,21 @@ class TasquesFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var chipGroup: ChipGroup
     private lateinit var toolbar: Toolbar
-    private val adapter = TasquesAdapter()
+    private val adapter = TasquesAdapter(
+        onTascaClick = { onTascaClick ->
+            val bundle = Bundle().apply {
+                putInt("tasca_id", tasca.id)
+            }
+
+            val fragment = EditarTascaFragment()
+            fragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+    )
     private var categoriaSeleccionada: Categoria? = null
 
     override fun onCreateView(

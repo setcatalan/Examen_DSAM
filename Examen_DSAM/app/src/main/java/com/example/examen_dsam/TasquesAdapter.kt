@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class TasquesAdapter : RecyclerView.Adapter<TascaViewHolder>() {
+class TasquesAdapter(
+    private val onTascaClick: (Tasca) -> Unit
+) : RecyclerView.Adapter<TascaViewHolder>() {
 
     private var tasques = listOf<Tasca>()
 
@@ -32,6 +34,8 @@ class TasquesAdapter : RecyclerView.Adapter<TascaViewHolder>() {
         } else if (tasca.estat.nom.equals("Finalitzada")){
             holder.estat.setTextColor(holder.estat.resources.getColor(R.color.finalitzada))
         }
+
+        holder.itemView.setOnClickListener { onTascaClick(tasca) }
     }
 
     override fun getItemCount(): Int {
